@@ -9,6 +9,66 @@ Mongoose plugin to provide private fields functionality
 $ npm install mongoose-private --save
 ```
 
+## Documentation
+
+### Enable plugin for model
+  ```js
+  var privates = require('mongoose-private');
+
+  var mongoose = require('mongoose');
+  var Schema = mongoose.Schema;
+
+  var AppleSchema = new Schema({
+    code: { type: Number, private: true},
+    color: String
+  });
+
+  AppleSchema.plugin(privates, schemaOptions);
+  mongoose.model('Apples', AppleSchema, 'Apples');
+  ```
+  
+### There are 3 possible ways of usage
+
+1. Via Model method toJSON
+    - explicit
+    ```js
+        var apple = new Apple({code:0x63, color: 'red'});
+        var json = apple.toJSON(options); //{color: 'red'}
+    ```
+    - implicit
+    ```js
+        var apple = new Apple({code:0x64, color: 'green'});
+        var jsonString = JSON.stringify(apple); //"{"color":"green"}"
+    ```
+2. Via omitPrivatePaths static schema method
+    ```js
+        var apple = {code:0x65, color: 'yellow'};
+        var json = Apple.omitPrivatePaths(apple); //{color: 'yellow'}
+    ```
+3. Via toProjection static schema method
+    ```js
+        Apple.findOne({color: 'red'}, Apple.toProjection(options))
+            .lean().exec(fn);
+        Bucket.find({}, Bucket.toProjection())
+            .populate('apples', Apple.toProjection(options))
+            .lean().exec(fn);
+    ```
+
+### Possible options
+
+1. You can provide options in method call
+    - omit: *String or Array* - if you need to omit in JSON any additional field
+    - pick: *String or Array* - if you need to include in JSON any additional field
+
+    ```js
+        var apple = new Apple({code:0x63, color: 'red'});
+        var json = apple.toJSON({omit:['color'], pick:['code']}); //{code: '0x63'}
+    ```
+
+2. You can provide options at schema level
+    ```js
+    ApplesSchema.plugin(privates, schemaOptions);
+    ```
 
 ## License
 
