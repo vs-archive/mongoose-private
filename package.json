@@ -1,0 +1,36 @@
+{
+  "name": "mongoose-private",
+  "version": "0.1.0",
+  "main": "lib/index.js",
+  "description": "Mongoose plugin to provide private fields functionality",
+  "homepage": "https://github.com/valorkin/mongoose-private",
+  "bugs": "https://github.com/valorkin/mongoose-private/issues",
+  "author": {
+    "name": "Dmitriy Shekhovtsov",
+    "email": "valorkin@gmail.com",
+    "url": "https://github.com/valorkin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valorkin/mongoose-private"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "scripts": {
+    "jshint": "gulp lint"
+  },
+  "dependencies": {
+    "lodash": "2.*"
+  },
+  "peerDependencies": {
+    "mongoose": "*"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-jshint": "^1.8.4",
+    "jshint-stylish": "^0.4.0"
+  }
+}
