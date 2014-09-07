@@ -3,6 +3,13 @@ mongoose-private
 
 Mongoose plugin to provide private fields functionality
 
+## Installation
+
+```sh
+$ npm install mongoose-private --save
+```
+
+
 ## License
 
 Copyright (c) 2014 Valorkin &lt;valorkin@gmail.com&gt;
@@ -25,3 +32,7 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+## Credits
+Inspired by https://github.com/yamadapc/mongoose-private-paths
+But configuration is over convention.
