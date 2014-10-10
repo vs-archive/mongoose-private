@@ -1,6 +1,6 @@
 {
   "name": "mongoose-private",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "lib/index.js",
   "description": "Mongoose plugin to provide private fields functionality",
   "homepage": "https://github.com/valorkin/mongoose-private",
